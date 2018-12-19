@@ -1,8 +1,17 @@
+# ignore npm- & expo-related config/package files
 node_modules/**/*
 package-lock.json
 .expo/*
 npm-debug.*
+
+# ignores sensitive file extensions
 *.jks
 *.p12
 *.key
 *.mobileprovision
+
+# not sure where this file came from, possibly Adrian's original solution
+tree.txt
+
+# ignore vscode settings
+.vscode/*

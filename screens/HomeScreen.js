@@ -51,7 +51,7 @@ export default class HomeScreen extends React.Component {
               </RkButton>
               <RkButton
                 rkType="rounded"
-                style={{ backgroundColor: "#f44242", marginTop: 50 }}
+                style={{ backgroundColor: "#f44242", marginTop: 10 }}
                 onPress={() => {
                   this.props.navigation.navigate("SignUp");
                 }}
@@ -60,7 +60,7 @@ export default class HomeScreen extends React.Component {
               </RkButton>
               <RkButton
                 rkType="rounded"
-                style={{ backgroundColor: "#f44242", marginTop: 50 }}
+                style={{ backgroundColor: "#f44242", marginTop: 10 }}
                 onPress={() => {
                   this.props.navigation.navigate("AboutUs");
                 }}
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   },
   getStartedContainer: {
     alignItems: "center",
-    marginHorizontal: 50
+		marginHorizontal: 50,
   },
   homeScreenFilename: {
     marginVertical: 7
