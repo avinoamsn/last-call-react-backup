@@ -12,6 +12,8 @@ import {
   Alert
 } from "react-native";
 
+import { buttons } from "../styles/base.js";
+
 import { RkButton } from "react-native-ui-kitten";
 import { BackgroundImage } from "../components/BackGroundImage";
 
@@ -42,7 +44,7 @@ export default class HomeScreen extends React.Component {
             <View style={styles.getStartedContainer}>
               <RkButton
                 rkType="rounded"
-                style={{ backgroundColor: "#f44242" }}
+                style={buttons}
                 onPress={() => {
                   this.props.navigation.navigate("SignIn");
                 }}
@@ -51,7 +53,7 @@ export default class HomeScreen extends React.Component {
               </RkButton>
               <RkButton
                 rkType="rounded"
-                style={{ backgroundColor: "#f44242", marginTop: 10 }}
+                style={buttons}
                 onPress={() => {
                   this.props.navigation.navigate("SignUp");
                 }}
@@ -60,7 +62,7 @@ export default class HomeScreen extends React.Component {
               </RkButton>
               <RkButton
                 rkType="rounded"
-                style={{ backgroundColor: "#f44242", marginTop: 10 }}
+                style={buttons}
                 onPress={() => {
                   this.props.navigation.navigate("AboutUs");
                 }}
