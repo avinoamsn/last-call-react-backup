@@ -36,7 +36,9 @@ export default class LoginScreen extends React.Component {
 
   render() {
     const displayForm =
-      (this.state && !this.state.loading && this.state.error === null) ||
+			(this.state &&
+				!this.state.loading &&
+				this.state.error === null) ||
       (this.state &&
         !this.state.loading &&
         this.state.error !== null &&
@@ -61,10 +63,8 @@ export default class LoginScreen extends React.Component {
 
     return (
       <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}
-        >
+        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+
           {(displayForm || displayError) && (
             <View style={styles.welcomeContainer}>
               <Image
@@ -75,44 +75,49 @@ export default class LoginScreen extends React.Component {
                 }
                 style={styles.welcomeImage}
               />
+
               <Text style={styles.h1}>Sign In to Your Account</Text>
+
               <Input
                 placeholder="Email address"
                 name="username"
                 leftIcon={<Icon name="user" size={24} color="black" />}
                 onChangeText={this.handleEmailChange}
               />
+
               <Input
                 placeholder="Password"
                 name="password"
-                leftIcon={
-                  <Icon name="question-circle" size={24} color="black" />
-                }
+                leftIcon={<Icon name="question-circle" size={24} color="black" />}
                 onChangeText={this.handlePasswordChange}
               />
+
               {displayError && (
                 <ErrorMessage text={this.state.error.ErrorMessage} />
-              )}
+							)}
+							
               <LinkLabel text="Forgot Password" />
+
               <RkButton
                 rkType="rounded"
                 style={{ backgroundColor: "#f44242", marginTop: 50 }}
                 onPress={() => {
                   this.handleSubmit();
-                }}
-              >
-                Sign In
-              </RkButton>
+                }}>Sign In</RkButton>
+
             </View>
-          )}
+					)}
+					
           {displayWaiting && (
             <View style={styles.welcomeContainer}>
               <Text>Logging you in...</Text>
             </View>
-          )}
+					)}
+					
           {displaySuccess && (
             <Text>Welcome to Last Call {this.state.username}!</Text>
-          )}
+					)}
+					
         </ScrollView>
       </View>
     );

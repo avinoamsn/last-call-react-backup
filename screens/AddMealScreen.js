@@ -3,9 +3,24 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { BackgroundImage } from "../components/BackGroundImage";
 
 export default class AddMealScreen extends React.Component {
-  static navigationOptions = {
-    header: null
-  };
+	
+	constructor(properties) {
+    super(properties);
+    this.state = {
+      offerdate: "",
+			offerstarttime: "",
+			offerendtime: "",
+			offername: "",
+			offerdescription: "",
+			supplierid: "",
+			qtyavailably: "",
+			foodtypeid: "",
+		};
+	}
+		
+	static navigationOptions = {
+		header: null
+	};
 
   render() {
     return (

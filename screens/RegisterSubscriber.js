@@ -54,8 +54,10 @@ export default class RegisterSubscriberScreen extends React.Component {
 
     global.foodPreferences = "";
 
+		// bind methods to screen elements
     this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+		this.handlePasswordChange = this.handlePasswordChange.bind(this);
+		this.handleConfirmPasswordChange = this.handleConfirmPasswordChange.bind(this);
     this.handlePasswordQChange = this.handlePasswordQChange.bind(this);
     this.handlePasswordAChange = this.handlePasswordAChange.bind(this);
     this.handleAddressChange = this.handleAddressChange.bind(this);
