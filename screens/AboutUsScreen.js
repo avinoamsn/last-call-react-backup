@@ -5,12 +5,21 @@ import {
   StyleSheet,
   View,
   Text,
-  Image
-} from "react-native";
+	Image }
+	from "react-native";
+import HeaderIcon from "../components/HeaderIcon";
+import { RkButton } from "react-native-ui-kitten";
 
 export default class AboutUsScreen extends React.Component {
   static navigationOptions = {
-    header: null
+		// TODO: is this useful, or is the default nav button fine? (this isn't working yet, btw)
+		headerLeft: (
+			<RkButton
+				rkType="clear"
+				onPress={ () => this.props.navigation.goBack() }>
+					<HeaderIcon name={ Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back" }/>
+			</RkButton>
+		),
   };
 
   render() {

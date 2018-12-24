@@ -30,7 +30,7 @@ export default class AddMealScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View>
-            <Text style={styles.h1}>Hello</Text>
+            <Text style={styles.h1}>Add Meal</Text>
           </View>
         </ScrollView>
       </View>

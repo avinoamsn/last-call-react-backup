@@ -19,57 +19,53 @@ import { BackgroundImage } from "../components/BackGroundImage";
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null
+		header: null,
   };
 
   render() {
     return (
       <BackgroundImage>
         <View>
-          <ScrollView
-            style={styles.container}
-            contentContainerStyle={styles.contentContainer}
-          >
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+
             <View style={styles.welcomeContainer}>
               <Image
                 source={
                   __DEV__
                     ? require("../assets/images/last-call-logo.png")
                     : require("../assets/images/last-call-logo.png")
-                }
-                style={styles.welcomeImage}
+                } style={styles.welcomeImage}
               />
             </View>
 
             <View style={styles.getStartedContainer}>
+
               <RkButton
                 rkType="rounded"
                 style={buttons}
                 onPress={() => {
                   this.props.navigation.navigate("SignIn");
                 }}
-              >
-                Sign In
-              </RkButton>
+              >Sign In</RkButton>
+
               <RkButton
                 rkType="rounded"
                 style={buttons}
                 onPress={() => {
                   this.props.navigation.navigate("SignUp");
                 }}
-              >
-                Sign Up
-              </RkButton>
+              >Sign Up</RkButton>
+
               <RkButton
                 rkType="rounded"
                 style={buttons}
                 onPress={() => {
                   this.props.navigation.navigate("AboutUs");
                 }}
-              >
-                Learn More
-              </RkButton>
+              >Learn More</RkButton>
+
             </View>
+						
           </ScrollView>
         </View>
       </BackgroundImage>
