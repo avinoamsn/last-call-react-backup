@@ -2,7 +2,8 @@ import React from "react";
 import { Platform } from "react-native";
 import {
 	createAppContainer,
-  createStackNavigator,
+	createStackNavigator,
+	createTabNavigator,
   createBottomTabNavigator
 } from "react-navigation";
 
@@ -31,7 +32,6 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-	tabBarVisible: false,
   tabBarLabel: "Home",
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -106,12 +106,36 @@ AboutUsStack.navigationOptions = {
   )
 };
 
-const tabNavigator = createBottomTabNavigator({
-  Home: HomeStack,
+
+
+//////////////////////////////////////////////////////////////////////////////
+
+// tab navigator
+export const TabNavigator = createBottomTabNavigator({
   PlaceOrder: PlaceOrderStack,
   Supplier: SupplierStack,
   MyAccount: MyAccountStack,
   AboutUs: AboutUsStack
 });
 
-export default createAppContainer(tabNavigator);
+TabNavigator.navigationOptions = {
+	header: null,
+};
+
+// stack navigator (for navigating splash screen/login)
+export const StackNavigator = createStackNavigator({
+	Home: HomeScreen,
+  SignIn: LoginScreen,
+	SignUp: RegisterSubscriberScreen,
+	AboutUs: AboutUsScreen,
+
+	Tabs: TabNavigator,
+
+	OfferSummary: OfferSummaryScreen,
+  OfferDetails: OfferDetailsScreen,
+  PlaceOrder: PlaceOrderScreen,
+  ConfirmOrder: ConfirmOrderScreen,
+  Logout: LogoutScreen,
+});
+
+export default createAppContainer(StackNavigator);

@@ -177,7 +177,7 @@ export default class LoginScreen extends React.Component {
           //);
           const resetAction = StackActions.reset({
             index: 0,
-            actions: [NavigationActions.navigate({ routeName: "OfferSummary" })]
+            actions: [NavigationActions.navigate({ routeName: "Tabs" })]
           });
           this.props.navigation.dispatch(resetAction);
         }

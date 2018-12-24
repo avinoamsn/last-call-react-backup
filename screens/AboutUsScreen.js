@@ -12,7 +12,7 @@ import { RkButton } from "react-native-ui-kitten";
 
 export default class AboutUsScreen extends React.Component {
   static navigationOptions = {
-		// TODO: is this useful, or is the default nav button fine? (this isn't working yet, btw)
+		// TODO: remove OR fix this — is this useful, or is the default nav button fine?
 		headerLeft: (
 			<RkButton
 				rkType="clear"
