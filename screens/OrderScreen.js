@@ -4,7 +4,7 @@ import { BackgroundImage } from "../components/BackGroundImage";
 
 export default class OrderScreen extends React.Component {
   static navigationOptions = {
-    header: null
+    title: 'Available Meals',
   };
 
   render() {
@@ -15,7 +15,7 @@ export default class OrderScreen extends React.Component {
           contentContainerStyle={styles.contentContainer}
         >
           <View>
-            <Text style={styles.h1}>This is the ordering screen</Text>
+            <Text style={styles.h1}></Text>
           </View>
         </ScrollView>
       </View>

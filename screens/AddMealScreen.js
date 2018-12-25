@@ -19,7 +19,7 @@ export default class AddMealScreen extends React.Component {
 	}
 		
 	static navigationOptions = {
-		header: null
+    title: 'Add Meal',
 	};
 
   render() {
