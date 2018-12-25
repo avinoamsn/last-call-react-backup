@@ -7,13 +7,17 @@ import ErrorMessage from "../components/ErrorMessage.js";
 import { StackActions, NavigationActions } from "react-navigation";
 import FoodTypes from "../components/FoodTypes";
 
+// checkbox employed on registration form
+// TODO: use react checkbox(?)
 class SimpleCheckBox extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       checked: this.props.checked
     };
   }
+
   render() {
     return (
       <CheckBox
@@ -25,6 +29,7 @@ class SimpleCheckBox extends React.Component {
       />
     );
   }
+
 }
 
 export default class RegisterSubscriberScreen extends React.Component {
