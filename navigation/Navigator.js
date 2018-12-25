@@ -106,8 +106,6 @@ AboutUsStack.navigationOptions = {
   )
 };
 
-
-
 //////////////////////////////////////////////////////////////////////////////
 
 // tab navigator
@@ -131,11 +129,13 @@ export const StackNavigator = createStackNavigator({
 
 	Tabs: TabNavigator,
 
-	OfferSummary: OfferSummaryScreen,
+	// TODO: insert these into the correct stacks
+	// (that'll make use of the respective screens)
+	/*OfferSummary: OfferSummaryScreen,
   OfferDetails: OfferDetailsScreen,
   PlaceOrder: PlaceOrderScreen,
   ConfirmOrder: ConfirmOrderScreen,
-  Logout: LogoutScreen,
+  Logout: LogoutScreen,*/
 });
 
 export default createAppContainer(StackNavigator);
