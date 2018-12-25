@@ -8,7 +8,7 @@ import { StackActions, NavigationActions } from "react-navigation";
 import FoodTypes from "../components/FoodTypes";
 
 // checkbox employed on registration form
-// TODO: use react checkbox(?)
+// TODO: refactor Checkbox usage
 class SimpleCheckBox extends React.Component {
 
   constructor(props) {

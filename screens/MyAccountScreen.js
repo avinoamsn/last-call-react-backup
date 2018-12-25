@@ -36,7 +36,15 @@ export default class MyAccountScreen extends React.Component {
   // displayName = RegisterMyAccountScreen.name;
   
   static navigationOptions = {
-    header: null
+		// TODO: remove OR fix this — is this useful, or is the default nav button fine?
+		/*headerLeft: (
+			<RkButton
+				rkType="clear"
+				onPress={ () => this.props.navigation.goBack() }>
+					<HeaderIcon name={ Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back" }/>
+			</RkButton>
+    ),*/
+    title: 'My Account',
   };
 
   constructor(properties) {
@@ -147,17 +155,6 @@ export default class MyAccountScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           {(displayForm || displayError) && (
             <View style={styles.welcomeContainer}>
-
-              <Image
-                source={
-                  __DEV__
-                    ? require("../assets/images/last-call-logo.png")
-                    : require("../assets/images/last-call-logo.png")
-                }
-                style={styles.welcomeImage}
-              />
-
-              <Text style={styles.h1}>Register A New Account</Text>
 
               {displayError && (
                 <ErrorMessage text={this.state.error.ErrorMessage} />
@@ -289,6 +286,7 @@ export default class MyAccountScreen extends React.Component {
     formData.append("mailinglist", this.refs.mailinglist.state.checked ? 1 : 0);
 
     this.setState({ loading: true });
+
     // POST the data, and check the response
     fetch(url, {
       method: "POST",
@@ -348,4 +346,5 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 10
   }
+
 });
