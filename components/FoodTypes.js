@@ -2,6 +2,8 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { CheckBox, ListItem } from "react-native-elements";
 
+import { dbUrl } from "./DatabaseUrl";
+
 class CustomCheckBox extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +39,7 @@ export class FoodTypes extends React.Component {
       loading: true
     };
 
-    var url = "http://lastcallforfood-dev.com/HelperServices/FoodTypes";
+    var url = dbUrl + "HelperServices/FoodTypes";
 
     fetch(url)
       .then(response => response.json())

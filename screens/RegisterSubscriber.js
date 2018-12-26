@@ -7,6 +7,8 @@ import ErrorMessage from "../components/ErrorMessage.js";
 import { StackActions, NavigationActions } from "react-navigation";
 import FoodTypes from "../components/FoodTypes";
 
+import dbUrl from "../components/DatabaseUrl";
+
 class SimpleCheckBox extends React.Component {
   constructor(props) {
     super(props);
@@ -269,8 +271,7 @@ export default class RegisterSubscriberScreen extends React.Component {
   }
 
   handleSubmit() {
-    var url =
-      "http://lastcallforfood-dev.com/SubscriberServices/RegisterSubscriber";
+    var url = dbUrl + "SubscriberServices/RegisterSubscriber";
 
     var formData = new FormData();
     formData.append("username", this.state.username);

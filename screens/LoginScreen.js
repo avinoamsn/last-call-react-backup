@@ -7,6 +7,8 @@ import LinkLabel from "../components/LinkLabel.js";
 import ErrorMessage from "../components/ErrorMessage.js";
 import { StackActions, NavigationActions } from "react-navigation";
 
+import { dbUrl } from "../components/DatabaseUrl";
+
 export default class LoginScreen extends React.Component {
   static navigationOptions = {
     header: null
@@ -124,7 +126,8 @@ export default class LoginScreen extends React.Component {
   }
 
   handleSubmit() {
-    var url = "http://lastcallforfood-dev.com/SubscriberServices/Login";
+		var url = dbUrl + "SubscriberServices/Login";
+		console.log(url);
 
     var formData = new FormData();
     formData.append("username", this.state.username);
