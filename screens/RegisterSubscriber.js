@@ -9,13 +9,17 @@ import FoodTypes from "../components/FoodTypes";
 
 import dbUrl from "../components/DatabaseUrl";
 
+// checkbox employed on registration form
+// TODO: refactor Checkbox usage
 class SimpleCheckBox extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {
       checked: this.props.checked
     };
   }
+
   render() {
     return (
       <CheckBox
@@ -27,6 +31,7 @@ class SimpleCheckBox extends React.Component {
       />
     );
   }
+
 }
 
 export default class RegisterSubscriberScreen extends React.Component {
