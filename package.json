@@ -5,7 +5,8 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-    "ios": "expo start --ios",
+		"ios": "expo start --ios",
+		"iiseproxy": "iisexpress-proxy 51540 to 3000 & expo start",
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },

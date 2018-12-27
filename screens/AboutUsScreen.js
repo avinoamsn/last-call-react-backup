@@ -12,14 +12,15 @@ import { RkButton } from "react-native-ui-kitten";
 
 export default class AboutUsScreen extends React.Component {
   static navigationOptions = {
+		header: null,
 		// TODO: remove OR fix this — is this useful, or is the default nav button fine?
-		headerLeft: (
+		/*headerLeft: (
 			<RkButton
 				rkType="clear"
 				onPress={ () => this.props.navigation.goBack() }>
 					<HeaderIcon name={ Platform.OS === "ios" ? "ios-arrow-back" : "md-arrow-back" }/>
 			</RkButton>
-		),
+		),*/
   };
 
   render() {

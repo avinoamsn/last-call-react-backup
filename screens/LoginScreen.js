@@ -127,7 +127,6 @@ export default class LoginScreen extends React.Component {
 
   handleSubmit() {
 		var url = dbUrl + "SubscriberServices/Login";
-		console.log(url);
 
     var formData = new FormData();
     formData.append("username", this.state.username);
