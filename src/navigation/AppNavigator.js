@@ -21,11 +21,13 @@ import OfferDetailsScreen from '../screens/OfferDetailsScreen';
 import ConfirmOrderScreen from '../screens/ConfirmOrderScreen';
 import AddMealScreen from '../screens/AddMealScreen';
 
+// TODO: organize & code such that tabs change based on user type
+
 // tab navigator
 export const SubscriberTabNavigator = createBottomTabNavigator(
 	{
 		PlaceOrder: PlaceOrderScreen,
-		Supplier: AddMealScreen,
+		AddMeal: AddMealScreen,
 		MyAccount: MyAccountScreen,
 		AboutUs: AboutUsScreen,
 	},
@@ -33,17 +35,14 @@ export const SubscriberTabNavigator = createBottomTabNavigator(
 		defaultNavigationOptions: ({ navigation }) => ({
 			tabBarLabel: ({ focused, tintColor }) => {
 				const { routeName } = navigation.state;
-				const tabBarStyle = { textAlign: 'center', /*color: {tintColor},*/ };	// for some reason, tabBarLabel is not styled the same as it is in .navigationOptions
+				const tabBarStyle = { textAlign: 'center', /*color: {tintColor},*/ };	// for some reason, tabBarLabel is not styled the same as it is when using .navigationOptions
 				let text;
-				
-				if (routeName === 'PlaceOrder') {
-					text = 'Buy Meal';
-				} else if (routeName === 'Supplier') {
-					text = 'Add Meal';
-				} else if (routeName === 'MyAccount') {
-					text = 'My Account';
-				} else if (routeName === 'AboutUs') {
-					text = 'About Us';
+
+				switch (routeName) {
+					case 'PlaceOrder': 	text = 'Buy Meal'; break;
+					case 'AddMeal': 		text = 'Add Meal'; break;
+					case 'MyAccount': 	text = 'My Account'; break;
+					case 'AboutUs': 		text = 'About Us'; break;
 				}
 				return <Text style={tabBarStyle} size={12}>{text}</Text>;
 			},
@@ -51,14 +50,11 @@ export const SubscriberTabNavigator = createBottomTabNavigator(
 				const { routeName } = navigation.state;
 				let iconName;
 
-				if (routeName === 'PlaceOrder') {
-					iconName = 'ios-cart';
-				} else if (routeName === 'Supplier') {
-					iconName = 'ios-add';
-				} else if (routeName === 'MyAccount') {
-					iconName = 'ios-person';
-				} else if (routeName === 'AboutUs') {
-					iconName = 'ios-information-circle';
+				switch (routeName) {
+					case 'PlaceOrder': 	iconName = 'ios-cart'; break;
+					case 'AddMeal': 		iconName = 'ios-add'; break;
+					case 'MyAccount': 	iconName = 'ios-person'; break;
+					case 'AboutUs': 		iconName = 'ios-information-circle'; break;
 				}
 				return <Ionicons name={iconName} size={26} color={tintColor} />;
 			},
