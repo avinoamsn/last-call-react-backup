@@ -1,24 +1,25 @@
-import React from "react";
-import { Platform } from "react-native";
+import React from 'react';
+import { Platform, Text } from 'react-native';
 import {
 	createAppContainer,
 	createStackNavigator,
 	createTabNavigator,
   createBottomTabNavigator
-} from "react-navigation";
+} from 'react-navigation';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import TabBarIcon from "../components/TabBarIcon";
-import HomeScreen from "../screens/HomeScreen";
-import AboutUsScreen from "../screens/AboutUsScreen";
-import PlaceOrderScreen from "../screens/PlaceOrderScreen.js";
-import MyAccountScreen from "../screens/MyAccountScreen";
-import LoginScreen from "../screens/LoginScreen";
-import LogoutScreen from "../screens/LogoutScreen";
-import RegisterSubscriberScreen from "../screens/RegisterSubscriber";
-import OfferSummaryScreen from "../screens/OfferSummaryScreen";
-import OfferDetailsScreen from "../screens/OfferDetailsScreen";
-import ConfirmOrderScreen from "../screens/ConfirmOrderScreen";
-import AddMealScreen from "../screens/AddMealScreen";
+import TabBarIcon from '../components/TabBarIcon';
+import HomeScreen from '../screens/HomeScreen';
+import AboutUsScreen from '../screens/AboutUsScreen';
+import PlaceOrderScreen from '../screens/PlaceOrderScreen.js';
+import MyAccountScreen from '../screens/MyAccountScreen';
+import LoginScreen from '../screens/LoginScreen';
+import LogoutScreen from '../screens/LogoutScreen';
+import RegisterSubscriberScreen from '../screens/RegisterSubscriber';
+import OfferSummaryScreen from '../screens/OfferSummaryScreen';
+import OfferDetailsScreen from '../screens/OfferDetailsScreen';
+import ConfirmOrderScreen from '../screens/ConfirmOrderScreen';
+import AddMealScreen from '../screens/AddMealScreen';
 
 const HomeStack = createStackNavigator({
 	Home: HomeScreen,
@@ -31,94 +32,51 @@ const HomeStack = createStackNavigator({
   Logout: LogoutScreen,
 });
 
-HomeStack.navigationOptions = {
-  tabBarLabel: "Home",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-home${focused ? "" : "-outline"}`
-          : "md-home"
-      }
-    />
-  )
-};
-
-const PlaceOrderStack = createStackNavigator({
-  PlaceOrder: PlaceOrderScreen
-});
-
-PlaceOrderStack.navigationOptions = {
-  tabBarLabel: "Order",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-cart" : "md-cart"}
-    />
-  )
-};
-
-const SupplierStack = createStackNavigator({
-  AddMeal: AddMealScreen
-});
-
-SupplierStack.navigationOptions = {
-  tabBarLabel: "Add Meal",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-add" : "md-add"}
-    />
-  )
-};
-
-const MyAccountStack = createStackNavigator({
-  MyAccount: MyAccountScreen
-});
-
-MyAccountStack.navigationOptions = {
-  tabBarLabel: "My Account",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === "ios" ? "ios-person" : "md-person"}
-    />
-  )
-};
-
-const AboutUsStack = createStackNavigator({
-	AboutUs: AboutUsScreen,
-});
-
-AboutUsStack.navigationOptions = {
-	tabBarVisible: false,
-  tabBarLabel: "About Us",
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === "ios"
-          ? `ios-information-circle${focused ? "" : "-outline"}`
-          : "md-information-circle"
-      }
-    />
-  )
-};
-
-//////////////////////////////////////////////////////////////////////////////
-
 // tab navigator
-export const TabNavigator = createBottomTabNavigator({
-  PlaceOrder: PlaceOrderStack,
-  Supplier: SupplierStack,
-  MyAccount: MyAccountStack,
-  AboutUs: AboutUsStack
-});
+export const SubscriberTabNavigator = createBottomTabNavigator(
+	{
+		PlaceOrder: PlaceOrderScreen,
+		Supplier: AddMealScreen,
+		MyAccount: MyAccountScreen,
+		AboutUs: AboutUsScreen,
+	},
+	{
+		defaultNavigationOptions: ({ navigation }) => ({
+			header: null,
+			tabBarLabel: ({ focused, tintColor }) => {
+				const { routeName } = navigation.state;
+				const tabBarStyle = { textAlign: 'center', color: rgb(tintColor) };	// for some reason, tabBarLabel is not styled the same as it is in .navigationOptions
+				let text;
+				
+				if (routeName === 'PlaceOrder') {
+					text = 'Buy Meal';
+				} else if (routeName === 'Supplier') {
+					text = 'Add Meal';
+				} else if (routeName === 'MyAccount') {
+					text = 'My Account';
+				} else if (routeName === 'AboutUs') {
+					text = 'About Us';
+				}
+				return <Text style={tabBarStyle} size={12}>{text}</Text>;
+			},
+			tabBarIcon: ({ focused, tintColor }) => {
+				const { routeName } = navigation.state;
+				let iconName;
 
-TabNavigator.navigationOptions = {
-	header: null,
-};
+				if (routeName === 'PlaceOrder') {
+					iconName = 'ios-cart';
+				} else if (routeName === 'Supplier') {
+					iconName = 'ios-add';
+				} else if (routeName === 'MyAccount') {
+					iconName = 'ios-person';
+				} else if (routeName === 'AboutUs') {
+					iconName = 'ios-information-circle';
+				}
+				return <Ionicons name={iconName} size={26} color={tintColor} />;
+			},
+		}),
+	},
+);
 
 // stack navigator (for navigating splash screen/login)
 export const StackNavigator = createStackNavigator({
@@ -127,15 +85,7 @@ export const StackNavigator = createStackNavigator({
 	SignUp: RegisterSubscriberScreen,
 	AboutUs: AboutUsScreen,
 
-	Tabs: TabNavigator,
-
-	// TODO: insert these into the correct stacks
-	// (that'll make use of the respective screens)
-	/*OfferSummary: OfferSummaryScreen,
-  OfferDetails: OfferDetailsScreen,
-  PlaceOrder: PlaceOrderScreen,
-  ConfirmOrder: ConfirmOrderScreen,
-  Logout: LogoutScreen,*/
+	Tabs: SubscriberTabNavigator,
 });
 
 export default createAppContainer(StackNavigator);
