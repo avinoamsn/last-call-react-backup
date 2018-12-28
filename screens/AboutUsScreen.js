@@ -7,7 +7,6 @@ import {
   Text,
 	Image }
 	from "react-native";
-import HeaderIcon from "../components/HeaderIcon";
 import { RkButton } from "react-native-ui-kitten";
 
 export default class AboutUsScreen extends React.Component {

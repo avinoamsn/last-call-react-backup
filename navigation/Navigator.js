@@ -8,29 +8,18 @@ import {
 } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-import TabBarIcon from '../components/TabBarIcon';
+// screens
+import LoginScreen from '../screens/LoginScreen';
+import LogoutScreen from '../screens/LogoutScreen';
 import HomeScreen from '../screens/HomeScreen';
 import AboutUsScreen from '../screens/AboutUsScreen';
 import PlaceOrderScreen from '../screens/PlaceOrderScreen.js';
 import MyAccountScreen from '../screens/MyAccountScreen';
-import LoginScreen from '../screens/LoginScreen';
-import LogoutScreen from '../screens/LogoutScreen';
 import RegisterSubscriberScreen from '../screens/RegisterSubscriber';
 import OfferSummaryScreen from '../screens/OfferSummaryScreen';
 import OfferDetailsScreen from '../screens/OfferDetailsScreen';
 import ConfirmOrderScreen from '../screens/ConfirmOrderScreen';
 import AddMealScreen from '../screens/AddMealScreen';
-
-const HomeStack = createStackNavigator({
-	Home: HomeScreen,
-  SignIn: LoginScreen,
-  SignUp: RegisterSubscriberScreen,
-  OfferSummary: OfferSummaryScreen,
-  OfferDetails: OfferDetailsScreen,
-  PlaceOrder: PlaceOrderScreen,
-  ConfirmOrder: ConfirmOrderScreen,
-  Logout: LogoutScreen,
-});
 
 // tab navigator
 export const SubscriberTabNavigator = createBottomTabNavigator(
@@ -42,10 +31,9 @@ export const SubscriberTabNavigator = createBottomTabNavigator(
 	},
 	{
 		defaultNavigationOptions: ({ navigation }) => ({
-			header: null,
 			tabBarLabel: ({ focused, tintColor }) => {
 				const { routeName } = navigation.state;
-				const tabBarStyle = { textAlign: 'center', color: rgb(tintColor) };	// for some reason, tabBarLabel is not styled the same as it is in .navigationOptions
+				const tabBarStyle = { textAlign: 'center', /*color: {tintColor},*/ };	// for some reason, tabBarLabel is not styled the same as it is in .navigationOptions
 				let text;
 				
 				if (routeName === 'PlaceOrder') {

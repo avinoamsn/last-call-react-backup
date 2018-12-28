@@ -12,7 +12,7 @@ import {
   Alert
 } from "react-native";
 
-import { buttons } from "../styles/base.js";
+import { buttons } from "../styles/Style.js";
 
 import { RkButton } from "react-native-ui-kitten";
 import { BackgroundImage } from "../components/BackGroundImage";
