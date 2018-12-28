@@ -5,8 +5,8 @@
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
-		"ios": "expo start --ios",
-		"iiseproxy": "iisexpress-proxy 51540 to 3000",
+    "ios": "expo start --ios",
+    "iiseproxy": "iisexpress-proxy 51540 to 3000",
     "eject": "expo eject",
     "test": "node ./node_modules/jest/bin/jest.js --watchAll"
   },
@@ -23,6 +23,7 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "react-native-elements": "^v1.0.0-beta1",
     "react-native-ui-kitten": "^3.1.2",
+    "react-native-vector-icons": "^6.1.0",
     "react-native-webview": "^2.10.0",
     "react-navigation": "^3.0.0",
     "react-redux": "^5.1.1",
@@ -32,7 +33,8 @@
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",
-		"jest-expo": "^31.0.0",
-		"iisexpress-proxy": "*"
+    "eslint-config-rallycoding": "^3.2.0",
+    "iisexpress-proxy": "*",
+    "jest-expo": "^31.0.0"
   }
 }
