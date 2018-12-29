@@ -1,5 +1,5 @@
-import React from "react";
-import { createSwitchNavigator, createAppContainer } from "react-navigation";
+import React from 'react';
+import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 
 // import MainTabNavigator from "./Navigator";
 
