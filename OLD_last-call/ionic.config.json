@@ -1,0 +1,8 @@
+{
+  "name": "last-call-ionic",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
